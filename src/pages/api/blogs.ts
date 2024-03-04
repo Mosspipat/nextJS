@@ -1,5 +1,3 @@
-// pages/api/hello.js
-
 import { dataPostList } from "@/mock";
 import { NextApiRequest, NextApiResponse } from "next";
 

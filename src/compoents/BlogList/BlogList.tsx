@@ -1,6 +1,6 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import React from "react";
-import { BlogPost, BlogPostProps } from "../BlogPost";
+import { BlogItem, BlogPostProps } from "../BlogItem";
 
 type BlogListProps = {
   blogs?: BlogPostProps[];
@@ -11,7 +11,7 @@ export const BlogList = (props: BlogListProps) => {
   return (
     <>
       {blogs?.map((post) => {
-        return <BlogPost {...post} key={post.id} />;
+        return <BlogItem {...post} key={post.id} />;
       })}
     </>
   );
