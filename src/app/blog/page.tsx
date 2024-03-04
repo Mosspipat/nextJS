@@ -1,5 +1,4 @@
 import { BlogList } from "@/compoents/BlogList";
-import { BlogPost } from "@/compoents/BlogPost";
 import { COLORS } from "@/constant";
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
@@ -18,7 +17,6 @@ const page = () => {
           Story Post Dairy
         </Text>
       </Box>
-      <BlogList  />
     </Box>
   );
 };
