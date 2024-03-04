@@ -1,6 +1,6 @@
+import { COLORS } from "@/constant";
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import { COLORS } from "../constant";
 
 const page = () => {
   return (
