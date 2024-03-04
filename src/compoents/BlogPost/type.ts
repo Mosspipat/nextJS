@@ -1,6 +1,6 @@
 export type BlogPostProps = {
   id: number;
-  nameAuthor: string;
+  author: string;
   content: string;
   dateCreated: string;
 };

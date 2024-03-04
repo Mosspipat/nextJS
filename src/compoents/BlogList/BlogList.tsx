@@ -1,13 +1,18 @@
-import { HStack } from "@chakra-ui/react";
+import { Box, HStack, VStack } from "@chakra-ui/react";
 import React from "react";
-import { BlogPostProps } from "../BlogPost";
+import { BlogPost, BlogPostProps } from "../BlogPost";
 
 type BlogListProps = {
-  blogs: BlogPostProps[];
+  blogs?: BlogPostProps[];
 };
 
 export const BlogList = (props: BlogListProps) => {
-  return <HStack>
-    
-  </HStack>;
+  const { blogs } = props;
+  return (
+    <>
+      {blogs?.map((post) => {
+        return <BlogPost {...post} key={post.id} />;
+      })}
+    </>
+  );
 };
