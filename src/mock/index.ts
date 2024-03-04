@@ -1,0 +1,1 @@
+export { dataPostList } from "./dataPost";
