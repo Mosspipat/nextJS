@@ -1,22 +1,19 @@
-import { Box, Button, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+import { COLORS } from "../constant";
 
 const page = () => {
   return (
-    <Box>
-      <Stack direction="row" spacing={4}>
-        <Button isLoading colorScheme="teal" variant="solid">
-          Email
-        </Button>
-        <Button
-          isLoading
-          loadingText="Submitting"
-          colorScheme="teal"
-          variant="outline"
-        >
-          Submit
-        </Button>
-      </Stack>
+    <Box padding={40} backgroundColor={COLORS.PRIMARY_COLOR}>
+      <Text
+        textAlign="center"
+        fontSize={40}
+        fontWeight="bold"
+        letterSpacing={4}
+        color="white"
+      >
+        Story Post Dairy
+      </Text>
     </Box>
   );
 };
