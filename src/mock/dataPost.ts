@@ -163,4 +163,4 @@ export const dataPostList: DetailPost[] = [
   },
 ];
 
-export default dataPostList;
+

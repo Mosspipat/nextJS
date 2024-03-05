@@ -11,7 +11,7 @@ export const BlogList = (props: BlogListProps) => {
   const { blogList } = props;
   return (
     <>
-      <HStack overflow="auto" py="100px" gap={16}>
+      <HStack overflow="auto" py="100px" px={4} gap={16}>
         {blogList?.map((post) => {
           return <BlogItem {...post} key={post.id} />;
         })}

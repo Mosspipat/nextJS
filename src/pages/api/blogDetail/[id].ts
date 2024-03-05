@@ -1,3 +1,4 @@
+import { dataPostList } from "@/mock";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handleBlogDetail(
@@ -5,5 +6,12 @@ export default function handleBlogDetail(
   res: NextApiResponse
 ) {
   const { id } = req.query;
-  res.end(`Post : ${id}`);
+
+  const mockData = dataPostList.find((post) => {
+    return post.id === Number(id);
+  });
+  console.log("🚀: ~ mockData:", mockData);
+
+  // res.end(`Post : ${id}`);
+  res.status(200).json(mockData);
 }

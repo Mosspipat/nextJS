@@ -6,7 +6,7 @@ import { BlogList } from "@/components/BlogList";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { getBlogs } from "@/service";
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
@@ -16,13 +16,16 @@ const page = () => {
     (async () => {
       const dataBlogs = await getBlogs();
       setDataPosts(dataBlogs);
-      console.log("🚀: ~ dataBlogs:", dataBlogs);
     })();
   }, []);
 
   return (
     <Box>
-      <Banner />
+      <Banner
+        label="Blog Post"
+        textColor="white"
+        backgroundColor={COLORS.PRIMARY_COLOR}
+      />
       <BlogList blogList={dataPosts} />
     </Box>
   );

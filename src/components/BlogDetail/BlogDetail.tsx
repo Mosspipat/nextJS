@@ -1,45 +1,43 @@
 import { COLORS } from "@/constant";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { BlogPostProps } from "./type";
+import { Banner } from "../Banner";
+import { DetailPost } from "@/mock";
+import { ActionButtonGroup } from "../ActionButtonGroup";
 
-export const BlogDetail = (props: BlogPostProps) => {
-  const { id, author, content, dateCreated } = props;
+export const BlogDetail = (props: DetailPost) => {
+  const { id, title, author, content, dateCreated } = props;
+  console.log("🚀: ~ props:", props);
   return (
-    <VStack
-      px={16}
-      py={16}
-      alignItems="start"
-      border="3px solid red"
-      borderRadius={80}
-      m={4}
-      backgroundColor={COLORS.SECONDARY_COLOR}
-      gap={4}
-    >
-      <Box>
-        <Text color="red" fontWeight="bold" fontSize={32}>
-          id:
-          {id}
-        </Text>
-      </Box>
-      <Box>
-        <Text color="white" fontWeight="bold">
-          author:
-        </Text>
-        <Text color="white">{author}</Text>
-      </Box>
-      <Box>
-        <Text color="white" fontWeight="bold">
-          content:
-        </Text>
-        <Text color="white">{content}</Text>
-      </Box>
-      <Box>
-        <Text color="white" fontWeight="bold">
-          dateCreated:
-        </Text>
-        <Text color="white">{dateCreated}</Text>
-      </Box>
-    </VStack>
+    <Box>
+      <Banner
+        label={title}
+        textColor="white"
+        backgroundColor={COLORS.PRIMARY_COLOR}
+      />
+      <VStack px={16} py={16} alignItems="start" m={4} gap={4}>
+        <Box>
+          <Text color="black" fontWeight="bold" fontSize={20}>
+            content:
+          </Text>
+          <Text color="black">{content}</Text>
+        </Box>
+        <Box>
+          <Text color="black" fontWeight="bold" fontSize={20}>
+            author:
+          </Text>
+          <Text color="black">{author}</Text>
+        </Box>
+        <Box>
+          <Text color="black" fontWeight="bold" fontSize={20}>
+            dateCreated:
+          </Text>
+          <Text color="black">{dateCreated}</Text>
+        </Box>
+      </VStack>
+      <Flex px={10} justifyContent="end">
+        <ActionButtonGroup space={2} />
+      </Flex>
+    </Box>
   );
 };
