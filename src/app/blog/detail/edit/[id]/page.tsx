@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import { Banner } from "@/components/Banner";
 import { COLORS } from "@/constant";
@@ -11,8 +12,10 @@ import {
 } from "@chakra-ui/react";
 import TextInput from "@/components/Input/TextInput/TextInput";
 import { ActionButtonGroup } from "@/components/ActionButtonGroup";
+import { useRouter } from "next/navigation";
 
 const page = ({ params }: { params: { id: number } }) => {
+  const router = useRouter();
   return (
     <Box>
       <Banner label={`Edit Post ${params?.id.toString()}`} textColor="white" />
@@ -37,16 +40,16 @@ const page = ({ params }: { params: { id: number } }) => {
         <Flex px={10} justifyContent="end">
           <ActionButtonGroup
             space={2}
+            cancelOption={{
+              label: "cancel",
+              action: () => {
+                router.back();
+              },
+            }}
             confirmOption={{
               label: "save",
               action: () => {
                 console.log("click confirm");
-              },
-            }}
-            cancelOption={{
-              label: "cancel",
-              action: () => {
-                console.log("click cancel");
               },
             }}
           />

@@ -4,10 +4,11 @@ import React from "react";
 import { Banner } from "../Banner";
 import { DetailPost } from "@/mock";
 import { ActionButtonGroup } from "../ActionButtonGroup";
+import { useRouter } from "next/navigation";
 
 export const BlogDetail = (props: DetailPost) => {
   const { id, title, author, content, dateCreated } = props;
-  console.log("🚀: ~ props:", props);
+  const router = useRouter();
   return (
     <Box>
       <Banner
@@ -36,7 +37,23 @@ export const BlogDetail = (props: DetailPost) => {
         </Box>
       </VStack>
       <Flex px={10} justifyContent="end">
-        <ActionButtonGroup space={2} />
+        <ActionButtonGroup
+          space={2}
+          cancelOption={{
+            label: "back",
+            action: () => {
+              console.log("back to previous page");
+              router.back();
+            },
+          }}
+          confirmOption={{
+            label: "edit",
+            action: () => {
+              router.push(`/blog/detail/edit/${id}`);
+              console.log("edit this blog");
+            },
+          }}
+        />
       </Flex>
     </Box>
   );
