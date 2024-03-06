@@ -13,7 +13,7 @@ export const BlogItem = (props: DetailPost) => {
   const router = useRouter();
 
   const handleOnClick = (id: number) => {
-    console.log("click:", id);
+
     router.push(`/blog/detail/${id}`);
     // router.refresh();
   };

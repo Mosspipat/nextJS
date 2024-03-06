@@ -1,4 +1,4 @@
-import { Box, HStack, VStack } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import React from "react";
 import { BlogItem } from "../BlogItem";
 import { DetailPost } from "@/mock";
@@ -12,9 +12,9 @@ export const BlogList = (props: BlogListProps) => {
   return (
     <>
       <HStack overflow="auto" py="100px" px={4} gap={16}>
-        {blogList?.map((post) => {
+        {/* {blogList?.map((post) => {
           return <BlogItem {...post} key={post.id} />;
-        })}
+        })} */}
       </HStack>
     </>
   );

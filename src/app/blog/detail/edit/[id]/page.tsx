@@ -49,7 +49,7 @@ const page = ({ params }: { params: { id: number } }) => {
             confirmOption={{
               label: "save",
               action: () => {
-                console.log("click confirm");
+
               },
             }}
           />

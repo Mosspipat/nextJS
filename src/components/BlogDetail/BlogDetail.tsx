@@ -42,7 +42,7 @@ export const BlogDetail = (props: DetailPost) => {
           cancelOption={{
             label: "back",
             action: () => {
-              console.log("back to previous page");
+
               router.back();
             },
           }}
@@ -50,7 +50,7 @@ export const BlogDetail = (props: DetailPost) => {
             label: "edit",
             action: () => {
               router.push(`/blog/detail/edit/${id}`);
-              console.log("edit this blog");
+
             },
           }}
         />

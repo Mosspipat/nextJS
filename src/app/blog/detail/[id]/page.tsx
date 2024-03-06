@@ -8,7 +8,6 @@ import { Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
 const page = ({ params }: { params: { id: number } }) => {
-  console.log("🚀: ~ params:", params);
 
   const [data, setData] = useState<DetailPost>();
 
