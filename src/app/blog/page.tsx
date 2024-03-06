@@ -7,7 +7,8 @@ import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { getBlogs } from "@/service";
 import { Box } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
+import Loading from "./loading";
 
 const page = () => {
   const [dataPosts, setDataPosts] = useState<DetailPost[] | undefined>();
@@ -15,6 +16,7 @@ const page = () => {
   useEffect(() => {
     (async () => {
       const dataBlogs = await getBlogs();
+      console.log("🚀: ~ dataBlogs:", dataBlogs);
       setDataPosts(dataBlogs);
     })();
   }, []);
@@ -26,7 +28,9 @@ const page = () => {
         textColor="white"
         backgroundColor={COLORS.PRIMARY_COLOR}
       />
-      <BlogList blogList={dataPosts} />
+      <Suspense fallback={<Loading />}>
+        <BlogList blogList={dataPosts} />
+      </Suspense>
     </Box>
   );
 };
