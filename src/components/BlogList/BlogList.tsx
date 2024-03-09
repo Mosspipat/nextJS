@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { HStack } from "@chakra-ui/react";
 import React from "react";
 import { BlogItem } from "../BlogItem";
@@ -7,7 +8,7 @@ type BlogListProps = {
   blogList?: DetailPost[];
 };
 
-export const BlogList = (props: BlogListProps) => {
+const BlogList = (props: BlogListProps) => {
   const { blogList } = props;
 
   return (
@@ -20,3 +21,5 @@ export const BlogList = (props: BlogListProps) => {
     </>
   );
 };
+
+export default BlogList;

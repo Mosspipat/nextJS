@@ -4,11 +4,10 @@
 import { BlogDetail } from "@/components/BlogDetail";
 import { DetailPost } from "@/mock";
 import { getBlogDetail } from "@/service";
-import { Box } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
+import Loading from "./loading";
 
 const page = ({ params }: { params: { id: number } }) => {
-
   const [data, setData] = useState<DetailPost>();
 
   useEffect(() => {
@@ -18,7 +17,13 @@ const page = ({ params }: { params: { id: number } }) => {
     })();
   }, []);
 
-  return <>{data && <BlogDetail {...data} />}</>;
+  return (
+    <div>
+      <Suspense fallback={<Loading />}>
+        {data && <BlogDetail {...data} />}
+      </Suspense>
+    </div>
+  );
 };
 
 export default page;

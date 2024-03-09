@@ -3,6 +3,7 @@
 
 import { Banner } from "@/components/Banner";
 import { BlogList } from "@/components/BlogList";
+import { PredLoading } from "@/components/PredLoading/PredLoading";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { getBlogs } from "@/service";
@@ -12,10 +13,13 @@ import React, { Suspense, useEffect, useState } from "react";
 const page = () => {
   const [dataPosts, setDataPosts] = useState<DetailPost[] | undefined>();
 
+  const LazyBlogList = React.lazy(
+    () => import("@/components/BlogList/BlogList")
+  );
+
   useEffect(() => {
     (async () => {
       const dataBlogs = await getBlogs();
-      console.log("🚀: ~ dataBlogs:", dataBlogs);
       setDataPosts(dataBlogs);
     })();
   }, []);
@@ -27,8 +31,11 @@ const page = () => {
         textColor="white"
         backgroundColor={COLORS.PRIMARY_COLOR}
       />
-
-      <BlogList blogList={dataPosts} />
+      <Box>
+        <Suspense fallback={<PredLoading />}>
+          <LazyBlogList blogList={dataPosts} />
+        </Suspense>
+      </Box>
     </Box>
   );
 };

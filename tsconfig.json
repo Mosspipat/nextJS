@@ -28,6 +28,6 @@
     ".next/types/**/*.ts",
     "src/components/BlogList",
     "src/components/AuthPanel/ProviderIcons"
-  ],
+, "src/components/PredLoading"  ],
   "exclude": ["node_modules"]
 }

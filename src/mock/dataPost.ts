@@ -162,5 +162,3 @@ export const dataPostList: DetailPost[] = [
     dateCreated: "2024-02-24",
   },
 ];
-
-

@@ -19,6 +19,7 @@ import { PasswordField } from "./PasswordField";
 import { useRouter } from "next/navigation";
 
 export const AuthPanel = () => {
+  
   const router = useRouter();
 
   const handleOnGuestLoin = () => {
