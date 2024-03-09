@@ -1,7 +1,5 @@
-"use client";
-
 import { Box, Text, VStack } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { useRouter } from "next/navigation";
@@ -13,10 +11,11 @@ export const BlogItem = (props: DetailPost) => {
   const router = useRouter();
 
   const handleOnClick = (id: number) => {
-
     router.push(`/blog/detail/${id}`);
     // router.refresh();
   };
+
+  useEffect(() => {}, []);
 
   const globalStyles = css`
     @keyframes mymove {

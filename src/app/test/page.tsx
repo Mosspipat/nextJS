@@ -1,6 +1,6 @@
 "use client";
 import { Box, Flex } from "@chakra-ui/react";
-import loadingAnimation from "../lotties/loading-animation.json";
+import loadingAnimation from "../../lotties/loading-animation.json";
 import Lottie from "react-lottie";
 
 export default function Loading() {

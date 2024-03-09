@@ -1,4 +1,3 @@
-"use client";
 import { HStack } from "@chakra-ui/react";
 import React from "react";
 import { BlogItem } from "../BlogItem";

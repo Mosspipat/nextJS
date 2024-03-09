@@ -1,5 +1,5 @@
 import { AuthPanel } from "@/components/AuthPanel";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 export default function Home() {
   return (
