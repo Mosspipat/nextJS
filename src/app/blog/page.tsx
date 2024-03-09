@@ -8,7 +8,6 @@ import { DetailPost } from "@/mock";
 import { getBlogs } from "@/service";
 import { Box } from "@chakra-ui/react";
 import React, { Suspense, useEffect, useState } from "react";
-import Loading from "./loading";
 
 const page = () => {
   const [dataPosts, setDataPosts] = useState<DetailPost[] | undefined>();
@@ -28,9 +27,8 @@ const page = () => {
         textColor="white"
         backgroundColor={COLORS.PRIMARY_COLOR}
       />
-      <Suspense fallback={<Loading />}>
-        <BlogList blogList={dataPosts} />
-      </Suspense>
+
+      <BlogList blogList={dataPosts} />
     </Box>
   );
 };
