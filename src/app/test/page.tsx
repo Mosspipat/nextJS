@@ -1,21 +1,28 @@
 "use client";
-import { Box, Flex } from "@chakra-ui/react";
-import loadingAnimation from "../../lotties/loading-animation.json";
-import Lottie from "react-lottie";
+import { Flex, Text, VStack } from "@chakra-ui/react";
+import React, { Suspense } from "react";
+import { PredLoading } from "@/components/PredLoading/PredLoading";
 
 export default function Loading() {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: loadingAnimation,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  const LazyBlogList = React.lazy(
+    () => import("@/components/Test/BlogListLazyLoadDemo")
+  );
 
   return (
-    <Flex color="red" h="100vh" alignItems="center">
-      <Lottie options={defaultOptions} height={400} width={400} />
-    </Flex>
+    <VStack h="100vh" py={20}>
+      <Text
+        fontSize="32px"
+        fontWeight="bold"
+        textTransform="uppercase"
+        letterSpacing="1px"
+        color="ButtonText"
+        textShadow="3px 3px 3px rgba(0,0,0,0.4),8px 8px 8px rgba(0,0,0,0.4)"
+      >
+        lazy Load Demo
+      </Text>
+      <Suspense fallback={<PredLoading />}>
+        <LazyBlogList />
+      </Suspense>
+    </VStack>
   );
 }
