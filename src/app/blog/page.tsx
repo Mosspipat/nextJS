@@ -1,24 +1,41 @@
-import { BlogList } from "@/compoents/BlogList";
-import { BlogPost } from "@/compoents/BlogPost";
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+
+import { Banner } from "@/components/Banner";
+import { BlogList } from "@/components/BlogList";
+import { PredLoading } from "@/components/PredLoading/PredLoading";
 import { COLORS } from "@/constant";
-import { Box, Text } from "@chakra-ui/react";
-import React from "react";
+import { DetailPost } from "@/mock";
+import { getBlogs } from "@/service";
+import { Box } from "@chakra-ui/react";
+import React, { Suspense, useEffect, useState } from "react";
 
 const page = () => {
+  const [dataPosts, setDataPosts] = useState<DetailPost[] | undefined>();
+
+  const LazyBlogList = React.lazy(
+    () => import("@/components/BlogList/BlogList")
+  );
+
+  useEffect(() => {
+    (async () => {
+      const dataBlogs = await getBlogs();
+      setDataPosts(dataBlogs);
+    })();
+  }, []);
+
   return (
     <Box>
-      <Box padding={40} backgroundColor={COLORS.PRIMARY_COLOR}>
-        <Text
-          textAlign="center"
-          fontSize={40}
-          fontWeight="bold"
-          letterSpacing={4}
-          color="white"
-        >
-          Story Post Dairy
-        </Text>
+      <Banner
+        label="Blog Post"
+        textColor="white"
+        backgroundColor={COLORS.PRIMARY_COLOR}
+      />
+      <Box>
+        <Suspense fallback={<PredLoading />}>
+          <LazyBlogList blogList={dataPosts} />
+        </Suspense>
       </Box>
-      <BlogList  />
     </Box>
   );
 };
