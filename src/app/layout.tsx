@@ -1,3 +1,4 @@
+import TanstackProvider from "@/providers/TanstackProvider";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ChakraProvider cssVarsRoot="body">{children}</ChakraProvider>
+        <TanstackProvider>
+          <ChakraProvider cssVarsRoot="body">{children}</ChakraProvider>
+        </TanstackProvider>
       </body>
     </html>
   );
