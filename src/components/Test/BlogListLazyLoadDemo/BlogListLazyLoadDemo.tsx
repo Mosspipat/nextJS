@@ -1,12 +1,13 @@
 import { Box, Flex, Stack, Text, VStack } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { BlogListDemo } from "./type";
+import React, { Suspense, useEffect, useState } from "react";
+import { BlogProps } from "./type";
 import { Post } from "./Post";
+import { PredLoading } from "@/components/PredLoading/PredLoading";
 
 const BlogListLazyLoadDemo = () => {
-  const [postList, setPostList] = useState<BlogListDemo[]>();
+  const [postList, setPostList] = useState<BlogProps[]>();
   console.log("🚀: ~ postList:", postList);
 
   const fetchPost = async () => {
@@ -34,14 +35,14 @@ const BlogListLazyLoadDemo = () => {
   }, [data?.pages]);
 
   const loadingRender = () => {
-    <p>Loading...</p>;
+    return PredLoading();
   };
 
   const errorRender = () => {
-    <p>Error: {error?.message}</p>;
+    return <p>Error: {error?.message}</p>;
   };
 
-  const postRender = (post: BlogListDemo) => {
+  const postRender = (post: BlogProps) => {
     return <Post post={post} />;
   };
 
@@ -57,9 +58,11 @@ const BlogListLazyLoadDemo = () => {
         py="24px"
         gap="16px"
       >
-        {postList?.map((post) => {
-          return <Post post={post} />;
-        })}
+        <Suspense fallback={<PredLoading />}>
+          {postList?.map((post) => {
+            return <Post post={post} />;
+          })}
+        </Suspense>
       </VStack>
     </>
   );

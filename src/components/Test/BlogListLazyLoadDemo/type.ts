@@ -1,4 +1,4 @@
-export interface BlogListDemo {
+export interface BlogProps {
   userId: number;
   id: number;
   title: string;

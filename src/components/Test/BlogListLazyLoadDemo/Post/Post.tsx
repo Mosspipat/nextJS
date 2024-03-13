@@ -1,9 +1,9 @@
 import React from "react";
 import { Flex, Stack, Text, VStack } from "@chakra-ui/react";
-import { BlogListDemo } from "../type";
+import { BlogProps } from "../type";
 
 type PostProps = {
-  post: BlogListDemo;
+  post: BlogProps;
 };
 
 export const Post = ({ post }: PostProps) => {

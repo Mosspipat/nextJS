@@ -1,13 +1,9 @@
 "use client";
-import { Flex, Text, VStack } from "@chakra-ui/react";
-import React, { Suspense } from "react";
-import { PredLoading } from "@/components/PredLoading/PredLoading";
+import BlogListLazyLoadDemo from "@/components/Test/BlogListLazyLoadDemo";
+import { Text, VStack } from "@chakra-ui/react";
+import React from "react";
 
 export default function Loading() {
-  const LazyBlogList = React.lazy(
-    () => import("@/components/Test/BlogListLazyLoadDemo")
-  );
-
   return (
     <VStack h="100vh" py={20}>
       <Text
@@ -20,9 +16,7 @@ export default function Loading() {
       >
         lazy Load Demo
       </Text>
-      <Suspense fallback={<PredLoading />}>
-        <LazyBlogList />
-      </Suspense>
+      <BlogListLazyLoadDemo />
     </VStack>
   );
 }
