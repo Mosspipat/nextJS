@@ -1,9 +1,11 @@
 "use client";
 import BlogListLazyLoadDemo from "@/components/Test/BlogListLazyLoadDemo";
-import { Text, VStack } from "@chakra-ui/react";
-import React from "react";
+import { Button, ButtonGroup, Text, VStack } from "@chakra-ui/react";
+import React, { useRef } from "react";
 
 export default function Loading() {
+  const childRef = useRef(null);
+
   return (
     <VStack h="100vh" py={20}>
       <Text
@@ -16,7 +18,25 @@ export default function Loading() {
       >
         lazy Load Demo
       </Text>
-      <BlogListLazyLoadDemo />
+      <BlogListLazyLoadDemo ref={childRef} />
+      <ButtonGroup>
+        <Button
+          onClick={() => {
+            childRef.current.gotoBackPage();
+            // handleBack();
+          }}
+        >
+          previous page
+        </Button>
+        <Button
+          onClick={() => {
+            childRef.current.gotoNextPage();
+            // handleNext();
+          }}
+        >
+          next page
+        </Button>
+      </ButtonGroup>
     </VStack>
   );
 }

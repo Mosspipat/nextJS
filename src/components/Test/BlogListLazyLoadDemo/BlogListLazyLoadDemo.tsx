@@ -1,14 +1,20 @@
 import { Box, Flex, Stack, Text, VStack } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { Suspense, useEffect, useState } from "react";
+import React, {
+  Suspense,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import { BlogProps } from "./type";
 import { Post } from "./Post";
 import { PredLoading } from "@/components/PredLoading/PredLoading";
 
-const BlogListLazyLoadDemo = () => {
+const BlogListLazyLoadDemo = forwardRef((props, ref) => {
   const [postList, setPostList] = useState<BlogProps[]>();
-  console.log("🚀: ~ postList:", postList);
 
   const fetchPost = async () => {
     const res = await axios("https://jsonplaceholder.typicode.com/posts");
@@ -26,7 +32,7 @@ const BlogListLazyLoadDemo = () => {
   } = useInfiniteQuery({
     queryKey: ["posts"],
     queryFn: fetchPost,
-    initialPageParam: 0,
+    initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
   });
 
@@ -45,6 +51,15 @@ const BlogListLazyLoadDemo = () => {
   const postRender = (post: BlogProps) => {
     return <Post post={post} />;
   };
+
+  useImperativeHandle(ref, () => ({
+    gotoBackPage() {
+      alert("back page");
+    },
+    gotoNextPage() {
+      alert("next page");
+    },
+  }));
 
   return (
     <>
@@ -66,6 +81,6 @@ const BlogListLazyLoadDemo = () => {
       </VStack>
     </>
   );
-};
+});
 
 export default BlogListLazyLoadDemo;
