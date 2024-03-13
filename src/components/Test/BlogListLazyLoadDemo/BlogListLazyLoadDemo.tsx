@@ -9,15 +9,20 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { BlogProps } from "./type";
+import { BlogProps, QueryTanProps } from "./type";
 import { Post } from "./Post";
 import { PredLoading } from "@/components/PredLoading/PredLoading";
 
 const BlogListLazyLoadDemo = forwardRef((props, ref) => {
   const [postList, setPostList] = useState<BlogProps[]>();
 
-  const fetchPost = async () => {
-    const res = await axios("https://jsonplaceholder.typicode.com/posts");
+  const perPage = 10;
+
+  const fetchPost = async (props: QueryTanProps) => {
+    console.log("🚀: ~ pageParam:", props.pageParam);
+    const res = await axios(
+      `https://jsonplaceholder.typicode.com/posts?_page=${props.pageParam}&_limit=${perPage}`
+    );
     return res.data;
   };
 
@@ -33,12 +38,17 @@ const BlogListLazyLoadDemo = forwardRef((props, ref) => {
     queryKey: ["posts"],
     queryFn: fetchPost,
     initialPageParam: 1,
-    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+    getNextPageParam: (lastPage, pages) => {
+      // console.log(pages);
+      return pages.length + 1;
+    },
   });
+  console.log("🚀: ~ data:", data);
 
   useEffect(() => {
-    setPostList(data?.pages[0]);
-  }, [data?.pages]);
+    const allPost = data?.pages.flat();
+    setPostList(allPost);
+  }, [data]);
 
   const loadingRender = () => {
     return PredLoading();
@@ -54,10 +64,11 @@ const BlogListLazyLoadDemo = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     gotoBackPage() {
-      alert("back page");
+      console.log("back page");
     },
     gotoNextPage() {
-      alert("next page");
+      // console.log("next page");
+      fetchNextPage();
     },
   }));
 
