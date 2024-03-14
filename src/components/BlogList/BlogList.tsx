@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { HStack, VStack } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import React from "react";
 import { BlogItem } from "../BlogItem";
 import { DetailPost } from "@/mock";
@@ -12,13 +12,11 @@ const BlogList = (props: BlogListProps) => {
   const { blogList } = props;
 
   return (
-    <>
-      <VStack overflow="auto" py="100px" px={4} gap={16} maxW="100vw">
+      <HStack py="100px" px={4} gap={16} maxW="100vw" flexWrap='wrap' justifyContent='center'>
         {blogList?.map((post) => {
           return <BlogItem {...post} key={post.id} />;
         })}
-      </VStack>
-    </>
+      </HStack>
   );
 };
 

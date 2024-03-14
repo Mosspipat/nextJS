@@ -1,4 +1,4 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Global, css } from "@emotion/react";
 
 export const BlogItem = (props: DetailPost) => {
-  const { id, title, author, content, dateCreated } = props;
+  const { id, title, author, content, dateCreated ,image } = props;
 
   const router = useRouter();
 
@@ -30,39 +30,44 @@ export const BlogItem = (props: DetailPost) => {
 
   return (
     <VStack
-      px={6}
-      py={6}
+      minH='260px'
+      pb={6}
       alignItems="start"
-      borderRadius={20}
+      borderRadius={`0px 0px 20px 20px`}
       border="1px solid rgba(0,0,0,0.2)"
       boxShadow="10px 10px 10px rgba(0,0,0,0.2)"
       transition="all 0.3s ease-out"
       _hover={{
         transform: `scale(1.1)`,
         cursor: "pointer",
-        backgroundColor: COLORS.SECONDARY_COLOR,
         "& > *": {
-          color: "white",
+          color: "black",
         },
       }}
       onClick={() => handleOnClick(id)}
     >
-      <VStack gap={4} alignItems="start">
+      <VStack gap={1} alignItems="start">
         <Box>
-          <Text fontWeight="bold">Title:</Text>
-          <Text width={200}>{title}</Text>
+          <Image src={image}  maxW={500} minH={400} objectFit='cover'/>
         </Box>
+        <Stack px={2}>
+        <HStack pt={4}>
+          <Text 
+          style={{ fontWeight: 'bold', borderBottom: '2px solid black'}}
+          fontWeight="bold">{title}</Text>
+        </HStack>
         <Box>
-          <Text fontWeight="bold">description:</Text>
           <Text
             whiteSpace="nowrap"
             textOverflow="ellipsis"
             overflow="hidden"
             width={60}
+            color={COLORS.COLOR_CONTRASTS.TERTIARY_COLOR.LightGray}
           >
             {content}
           </Text>
         </Box>
+        </Stack>
       </VStack>
     </VStack>
   );

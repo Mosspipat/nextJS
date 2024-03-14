@@ -2,7 +2,6 @@
 "use client";
 
 import { Banner } from "@/components/Banner";
-import { BlogList } from "@/components/BlogList";
 import { PredLoading } from "@/components/PredLoading/PredLoading";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";

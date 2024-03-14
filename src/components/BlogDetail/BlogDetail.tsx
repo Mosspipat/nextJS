@@ -1,5 +1,5 @@
 import { COLORS } from "@/constant";
-import { Box, Flex, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Banner } from "../Banner";
 import { DetailPost } from "@/mock";
@@ -7,14 +7,14 @@ import { ActionButtonGroup } from "../ActionButtonGroup";
 import { useRouter } from "next/navigation";
 
 export const BlogDetail = (props: DetailPost) => {
-  const { id, title, author, content, dateCreated } = props;
+  const { id, title, author, content, dateCreated ,image } = props;
   const router = useRouter();
   return (
     <Box>
       <Banner
         label={title}
         textColor="white"
-        backgroundColor={COLORS.PRIMARY_COLOR}
+        backgroundURL={image}
       />
       <VStack px={16} py={16} alignItems="start" m={4} gap={4}>
         <Box>
