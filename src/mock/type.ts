@@ -4,4 +4,5 @@ export type DetailPost = {
   author: string;
   content: string;
   dateCreated: string;
+  image: string;
 };

@@ -20,6 +20,7 @@ const page = () => {
   useEffect(() => {
     (async () => {
       const dataBlogs = await getBlogs();
+      console.log("🚀: ~ dataBlogs:", dataBlogs)
       setDataPosts(dataBlogs);
     })();
   }, []);
