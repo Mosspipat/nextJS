@@ -19,7 +19,7 @@ export default function Loading() {
         lazy Load Demo
       </Text>
       <BlogListLazyLoadDemo ref={childRef} />
-      <ButtonGroup>
+      {/* <ButtonGroup>
         <Button
           onClick={() => {
             childRef.current.gotoBackPage();
@@ -36,7 +36,7 @@ export default function Loading() {
         >
           next page
         </Button>
-      </ButtonGroup>
+      </ButtonGroup> */}
     </VStack>
   );
 }
