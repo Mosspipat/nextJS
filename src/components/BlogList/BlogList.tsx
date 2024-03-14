@@ -5,6 +5,7 @@ import React, { Suspense } from "react";
 import { DetailPost } from "@/mock";
 import { PredLoading } from "../PredLoading/PredLoading";
 
+
 type BlogListProps = {
   blogList?: DetailPost[];
 };

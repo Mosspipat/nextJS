@@ -1,12 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { useRouter } from "next/navigation";
-import { Global, css } from "@emotion/react";
+import { css } from "@emotion/react";
+import Resizer from "react-image-file-resizer";
+import { getImageFileType } from "@/util";
+
 
 const BlogItem = (props: DetailPost) => {
-  const { id, title, author, content, dateCreated ,image } = props;
+  const { id, title, content ,image  } = props;
+
+  const [optimizedImage, setOptimizedImage] = useState<Blob | string | ProgressEvent<FileReader>>();
 
   const router = useRouter();
 
@@ -15,7 +21,34 @@ const BlogItem = (props: DetailPost) => {
     // router.refresh();
   };
 
-  useEffect(() => {}, []);
+  const [resizedImage, setResizedImage] = useState<string | Blob | ProgressEvent<FileReader>>();
+
+  useEffect(()=>{
+    console.log("🚀: ~ resizedImage:", resizedImage)
+  },[resizedImage])
+
+  useEffect(() => {
+    (async () => {
+      const imageFile = await getImageFileType(image);
+      const resizeImage = (imageFile: Blob) => {
+        Resizer.imageFileResizer(
+          imageFile,
+          300, // Width
+          200, // Height
+          'WEBP', // Format
+          80, // Quality
+          0, // Rotation
+          (resizedImage) => {
+            setResizedImage(resizedImage);
+          },
+          'base64', // Type
+          200, // Min width
+          200 // Min height
+        );
+      };
+      resizeImage(imageFile as Blob); // Call the resizeImage function here
+    })();
+  }, [image]);
 
   const globalStyles = css`
     @keyframes mymove {
@@ -48,7 +81,7 @@ const BlogItem = (props: DetailPost) => {
     >
       <VStack gap={1} alignItems="start">
         <Box>
-          <Image src={image}  maxW={500} minH={400} objectFit='cover'/>
+          <Image src={resizedImage}  maxW={500} minH={400} objectFit='cover'/>
         </Box>
         <Stack px={6} >
         <HStack pt={4}>
