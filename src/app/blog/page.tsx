@@ -2,24 +2,19 @@
 "use client";
 
 import { Banner } from "@/components/Banner";
-import { PredLoading } from "@/components/PredLoading/PredLoading";
+import { BlogList } from "@/components/BlogList";
 import { COLORS } from "@/constant";
 import { DetailPost } from "@/mock";
 import { getBlogs } from "@/service";
 import { Box } from "@chakra-ui/react";
-import React, { Suspense, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 
 const page = () => {
   const [dataPosts, setDataPosts] = useState<DetailPost[] | undefined>();
 
-  const LazyBlogList = React.lazy(
-    () => import("@/components/BlogList/BlogList")
-  );
-
   useEffect(() => {
     (async () => {
       const dataBlogs = await getBlogs();
-      console.log("🚀: ~ dataBlogs:", dataBlogs)
       setDataPosts(dataBlogs);
     })();
   }, []);
@@ -32,9 +27,7 @@ const page = () => {
         backgroundColor={COLORS.PRIMARY_COLOR}
       />
       <Box>
-        <Suspense fallback={<PredLoading />}>
-          <LazyBlogList blogList={dataPosts} />
-        </Suspense>
+          <BlogList blogList={dataPosts} />
       </Box>
     </Box>
   );

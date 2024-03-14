@@ -5,7 +5,7 @@ import { DetailPost } from "@/mock";
 import { useRouter } from "next/navigation";
 import { Global, css } from "@emotion/react";
 
-export const BlogItem = (props: DetailPost) => {
+const BlogItem = (props: DetailPost) => {
   const { id, title, author, content, dateCreated ,image } = props;
 
   const router = useRouter();
@@ -72,3 +72,6 @@ export const BlogItem = (props: DetailPost) => {
     </VStack>
   );
 };
+
+
+export default BlogItem
