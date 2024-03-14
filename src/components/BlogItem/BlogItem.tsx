@@ -36,7 +36,7 @@ const BlogItem = (props: DetailPost) => {
           300, // Width
           200, // Height
           'WEBP', // Format
-          80, // Quality
+          100, // Quality
           0, // Rotation
           (resizedImage) => {
             setResizedImage(resizedImage);
