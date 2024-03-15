@@ -8,6 +8,7 @@ import { css } from "@emotion/react";
 import Resizer from "react-image-file-resizer";
 import { getImageFileType } from "@/util";
 import { ImageOptimize } from "../ImageOptimize";
+import { PredLoading } from "../PredLoading/PredLoading";
 
 
 const BlogItem = (props: DetailPost) => {
@@ -98,7 +99,7 @@ const BlogItem = (props: DetailPost) => {
     >
       <VStack gap={1} alignItems="start">
         <Box>
-          <ImageOptimize imagePath={imagePath}/>
+          <ImageOptimize imagePath={imagePath} preloadRender={<PredLoading/>} resizeFactor={10} qualityPercent={100}/>
         </Box>
         <Stack px={6} >
         <HStack pt={4}>
