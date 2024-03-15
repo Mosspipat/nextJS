@@ -30,7 +30,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.",
     dateCreated: "2024-03-04",
-    image: imagePost1.src,
+    imagePath: imagePost1.src,
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     dateCreated: "2024-03-03",
-    image: imagePost2.src,
+    imagePath: imagePost2.src,
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     dateCreated: "2024-03-02",
-    image: imagePost3.src,
+    imagePath: imagePost3.src,
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     dateCreated: "2024-03-01",
-    image: imagePost4.src,
+    imagePath: imagePost4.src,
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     dateCreated: "2024-02-29",
-    image: imagePost5.src,
+    imagePath: imagePost5.src,
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
     dateCreated: "2024-02-28",
-    image: imagePost6.src,
+    imagePath: imagePost6.src,
   },
   {
     id: 7,
@@ -84,7 +84,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
     dateCreated: "2024-02-27",
-    image: imagePost7.src,
+    imagePath: imagePost7.src,
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
     dateCreated: "2024-02-26",
-    image: imagePost8.src,
+    imagePath: imagePost8.src,
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.",
     dateCreated: "2024-02-25",
-    image: imagePost9.src,
+    imagePath: imagePost9.src,
   },
   {
     id: 10,
@@ -111,7 +111,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
     dateCreated: "2024-02-24",
-    image: imagePost10.src,
+    imagePath: imagePost10.src,
   },
   {
     id: 11,
@@ -120,7 +120,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.",
     dateCreated: "2024-03-04",
-    image: imagePost11.src,
+    imagePath: imagePost11.src,
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     dateCreated: "2024-03-03",
-    image: imagePost12.src,
+    imagePath: imagePost12.src,
   },
   {
     id: 13,
@@ -138,7 +138,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     dateCreated: "2024-03-02",
-    image: imagePost13.src,
+    imagePath: imagePost13.src,
   },
   {
     id: 14,
@@ -147,7 +147,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     dateCreated: "2024-03-01",
-    image: imagePost14.src,
+    imagePath: imagePost14.src,
   },
   {
     id: 15,
@@ -156,7 +156,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     dateCreated: "2024-02-29",
-    image: imagePost15.src,
+    imagePath: imagePost15.src,
   },
   {
     id: 16,
@@ -165,7 +165,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
     dateCreated: "2024-02-28",
-    image: imagePost16.src,
+    imagePath: imagePost16.src,
   },
   {
     id: 17,
@@ -174,7 +174,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
     dateCreated: "2024-02-27",
-    image: imagePost17.src,
+    imagePath: imagePost17.src,
   },
   {
     id: 18,
@@ -183,7 +183,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
     dateCreated: "2024-02-26",
-    image: imagePost18.src,
+    imagePath: imagePost18.src,
   },
   {
     id: 19,
@@ -192,7 +192,7 @@ export const dataPostList: DetailPost[] = [
     content:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.",
     dateCreated: "2024-02-25",
-    image: imagePost19.src,
+    imagePath: imagePost19.src,
   },
   {
     id: 20,
@@ -201,6 +201,6 @@ export const dataPostList: DetailPost[] = [
     content:
       "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
     dateCreated: "2024-02-24",
-    image: imagePost20.src,
+    imagePath: imagePost20.src,
   },
 ];

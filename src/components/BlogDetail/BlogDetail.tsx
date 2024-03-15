@@ -7,14 +7,14 @@ import { ActionButtonGroup } from "../ActionButtonGroup";
 import { useRouter } from "next/navigation";
 
 export const BlogDetail = (props: DetailPost) => {
-  const { id, title, author, content, dateCreated ,image } = props;
+  const { id, title, author, content, dateCreated ,imagePath } = props;
   const router = useRouter();
   return (
     <Box>
       <Banner
         label={title}
         textColor="white"
-        backgroundURL={image}
+        backgroundURL={imagePath}
       />
       <VStack px={16} py={16} alignItems="start" m={4} gap={4}>
         <Box>
