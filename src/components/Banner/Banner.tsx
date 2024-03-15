@@ -6,16 +6,23 @@ type BannerProps = {
   label?: string;
   textColor?: string;
   backgroundColor?: string;
+  backgroundURL?: string;
 };
 
 export const Banner = (props: BannerProps) => {
   const {
     label = "Title",
-    backgroundColor = COLORS.PRIMARY_COLOR,
+    backgroundColor = 'white',
+    backgroundURL = '',
     textColor = "color",
   } = props;
   return (
-    <Box padding={40} backgroundColor={backgroundColor}>
+    <Box padding={40} 
+    backgroundColor={backgroundColor && backgroundColor}
+    backgroundImage={backgroundURL && `url(${backgroundURL})`}
+    backgroundSize="cover"
+    backgroundRepeat="no-repeat"
+    backgroundPosition="center">
       <Text
         textAlign="center"
         fontSize={40}
