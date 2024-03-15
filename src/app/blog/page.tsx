@@ -14,8 +14,7 @@ const page = () => {
 
   useEffect(() => {
     (async () => {
-      const dataBlogs = await getBlogs();
-      console.log("🚀: ~ dataBlogs:", dataBlogs)
+      const dataBlogs = await getBlogs({currentPage:1,itemPerPage:3});
       setDataPosts(dataBlogs);
     })();
   }, []);
