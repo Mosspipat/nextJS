@@ -1,12 +1,10 @@
 "use client";
-import { Flex, Text, VStack } from "@chakra-ui/react";
-import React, { Suspense } from "react";
-import { PredLoading } from "@/components/PredLoading/PredLoading";
+import BlogListLazyLoadDemo from "@/components/Test/BlogListLazyLoadDemo";
+import { Button, ButtonGroup, Text, VStack } from "@chakra-ui/react";
+import React, { useRef } from "react";
 
 export default function Loading() {
-  const LazyBlogList = React.lazy(
-    () => import("@/components/Test/BlogListLazyLoadDemo")
-  );
+  const childRef = useRef(null);
 
   return (
     <VStack h="100vh" py={20}>
@@ -20,9 +18,25 @@ export default function Loading() {
       >
         lazy Load Demo
       </Text>
-      <Suspense fallback={<PredLoading />}>
-        <LazyBlogList />
-      </Suspense>
+      <BlogListLazyLoadDemo ref={childRef} />
+      {/* <ButtonGroup>
+        <Button
+          onClick={() => {
+            childRef.current.gotoBackPage();
+            // handleBack();
+          }}
+        >
+          previous page
+        </Button>
+        <Button
+          onClick={() => {
+            childRef.current.gotoNextPage();
+            // handleNext();
+          }}
+        >
+          next page
+        </Button>
+      </ButtonGroup> */}
     </VStack>
   );
 }
