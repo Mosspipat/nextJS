@@ -1,8 +1,6 @@
 import { dataPostList } from "@/mock";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-
-
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
