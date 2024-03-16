@@ -5,7 +5,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 type RequestBlogs = ParamBlogList & NextApiRequest;
 
 export async function GET(request: RequestBlogs) {
-  console.log("getData");
   const url = new URL(request.url as string);
   const searchParams = new URLSearchParams(url.searchParams);
 
@@ -14,16 +13,23 @@ export async function GET(request: RequestBlogs) {
   console.log({ currentPage, itemPerPage });
 
   const startIndex = (currentPage - 1) * itemPerPage;
-  console.log("🚀: ~ startIndex:", startIndex);
   const endIndex = startIndex + itemPerPage;
 
-  const itemsInPage = (dataPostList: DetailPost[], currentPage: number) => {
-    const allFindBlog = dataPostList;
+  const itemsInPage = (
+    dataPostList: DetailPost[],
+    startIndex: number,
+    endIndex: number
+  ) => {
+    var postListRequest = [];
+
+    for (var i = startIndex; i < endIndex; i++) {
+      postListRequest.push(dataPostList[i]);
+    }
+
+    return postListRequest;
   };
 
-  itemsInPage(dataPostList, currentPage);
+  const postRequest = itemsInPage(dataPostList, startIndex, endIndex);
 
-  // console.log("🚀: ~ itemsInPage:", itemsInPage);
-
-  return Response.json(dataPostList);
+  return Response.json(postRequest);
 }
