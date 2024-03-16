@@ -99,7 +99,7 @@ const BlogItem = (props: DetailPost) => {
     >
       <VStack gap={1} alignItems="start">
         <Box>
-          <ImageOptimize imagePath={imagePath} preloadRender={<PredLoading/>} resizeFactor={10} qualityPercent={100}/>
+          <ImageOptimize imagePath={imagePath} preloadRender={<PredLoading/>} resizeFactor={3} qualityPercent={100}/>
         </Box>
         <Stack px={6} >
         <HStack pt={4}>
