@@ -1,6 +1,6 @@
 # Project Name
 
-Brief description of your project.
+This project is created for learning Next.js, a popular React framework for building server-side rendered web applications. The purpose of this project is to explore the features and capabilities of Next.js, as well as to practice implementing various functionalities.
 
 ## Table of Contents
 
@@ -11,7 +11,13 @@ Brief description of your project.
 
 ## Installation
 
-Provide instructions on how to install and set up your project. Include any dependencies that need to be installed and any setup steps that need to be followed.
+To install and run this project locally using Yarn, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Run `yarn install` to install the project dependencies.
+4. After installation is complete, run `yarn dev` to start the development server.
+5. Open your web browser and navigate to `http://localhost:3000` to view the project.
 
 ## Usage
 
