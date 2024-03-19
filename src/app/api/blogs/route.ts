@@ -22,11 +22,14 @@ export async function GET(request: RequestBlogs) {
   ) => {
     var postListRequest = [];
 
-    for (var i = startIndex; i < endIndex; i++) {
-      postListRequest.push(dataPostList[i]);
+    if (startIndex < dataPostList.length && startIndex >= 0) {
+      for (var i = startIndex; i < endIndex; i++) {
+        postListRequest.push(dataPostList[i]);
+      }
+      return postListRequest;
+    } else {
+      return [];
     }
-
-    return postListRequest;
   };
 
   const postRequest = itemsInPage(dataPostList, startIndex, endIndex);
